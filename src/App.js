@@ -1,26 +1,38 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import './styles/main.css';
 import Header from './componets/Header';
 import Main from './componets/Main';
-import TextInput from './componets/TextInput';
-import getNewId from './services/idServices';
-import Button from './componets/Button';
-import mock_data from './mock-data.json';
+import { Form } from '@unform/web';
+import Mock_Data from './mock-data.json';
 import { Fragment } from 'react/cjs/react.production.min';
-import Input from './componets/Input';
+import Input from './componets/form/Input';
+import Button from './componets/form/Button';
+import Table from './componets/Table/Table';
 export default function App() {
-  //useState pesagem inputText
-
+  function handleSubmit(data) {
+    console.log(data);
+  }
   return (
     <Fragment>
-      <Main className="posts">
-        {mock_data.map(post => {
+      <Header>UTI</Header>
+      <Main>
+        <Form onSubmit={handleSubmit}>
+          <Input type="date" name="date" />
+          <Input type="number" name="number" />
+
+          <Button textButton="Editar" />
+        </Form>
+
+        {Mock_Data.map(post => {
           return (
-            <div key={post.id} className="post">
-              <h3>{post.id}</h3>
-              <h3>{post.peso}</h3>
-            </div>
+            <Table
+              keyId={post.id}
+              captiontable="Maquina Leve"
+              thHeadCell="Peso Kg"
+              tdDataCell={post.peso}
+            ></Table>
           );
         })}
       </Main>
