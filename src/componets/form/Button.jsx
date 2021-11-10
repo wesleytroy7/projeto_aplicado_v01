@@ -5,7 +5,7 @@ export default function Button({
 }) {
   return (
     <button
-      className=" align-baseline  bg-blue-500 hover:bg-blue-400 text-white font-bold p-4  border-b-4 border-blue-700 hover:border-blue-500 rounded"
+      className="  flex-auto py-1  mb-1 mt-1 container   bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold   rounded"
       type={typeButton}
       name={nameButton}
     >

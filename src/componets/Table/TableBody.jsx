@@ -1,11 +1,15 @@
-export default function TableBody({ tdTbody, keyID }) {
+export default function TableBody({
+  keyId = null,
+  tdDataCell = 'Dado da tabela',
+  thStyled,
+}) {
   return (
-    <tbody>
-      <tr className="bg-gray-100">
-        <td key={keyID} className="border px4 py-2">
-          {tdTbody}
-        </td>
-      </tr>
-    </tbody>
+    <table>
+      <tbody key={keyId}>
+        <tr>
+          <td className="border border-blue-600">{tdDataCell}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
