@@ -1,31 +1,15 @@
-import React, { useRef, useEffect, useState } from 'react';
-// import { v4 as uuidv4 } from 'uuid';
-// import axios from 'axios';
+import React from 'react';
 import './styles/main.css';
 import Header from './componets/Header';
 import Main from './componets/Main';
 import { Form } from '@unform/web';
-import data from './mock-data.json';
 import { Fragment } from 'react/cjs/react.production.min';
 import Input from './componets/form/Input';
 import Button from './componets/form/Button';
-// import TableHead from './componets/Table/TableHead';
 import { BasicTable } from './componets/Table/BasicTable';
 import Label from './componets/form/Label';
 
 export default function App() {
-  //State
-  // const [data, setData] = useState(Data);
-
-  // // Effect
-  // useEffect(() => {
-  //   // console.log(data)
-  //   // setData(Data)
-  // }, [data]);
-
-  // const addPost = () => {};
-  // const deletePost = key => {};
-  // const popularPost = () => {};
   const handleSubmit = (data, { reset }) => {
     console.log(data);
 
@@ -38,7 +22,7 @@ export default function App() {
         <Form onSubmit={handleSubmit} className="container ">
           <Label idLabel="id-date" textLabel="Insira a data de lançamento" />
           <Input id="id-date" type="date" name="date" />
-          <Label idLabel="id-date" textLabel="Insira o valor da pesagem:" />
+          <Label idLabel="id-peso" textLabel="Insira o valor da pesagem:" />
           <Input
             id="id-peso"
             type="number"
@@ -55,7 +39,6 @@ export default function App() {
             name="name"
             placeholder="Insira seu nome"
           />
-
           <Button nameButton="Salvar" textButton="Salvar" typeButton="submit" />
         </Form>
         <BasicTable />

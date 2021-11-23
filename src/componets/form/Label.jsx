@@ -1,8 +1,4 @@
-export default function Label({
-  idLabel,
-  receiveInput,
-  textLabel = 'texto do Label',
-}) {
+export default function Label({ idLabel, textLabel = 'texto do Label' }) {
   return (
     <label
       htmlFor={idLabel}
